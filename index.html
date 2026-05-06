@@ -1,746 +1,1118 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dr. Guillermo Irrazabal - Abogado especializado en Accidentes de Trabajo ART, Derecho Laboral, Divorcios y Sucesiones. Alto Valle de R�o Negro y Neuqu�n">
-    <meta name="keywords" content="abogado, ART, accidentes de trabajo, Neuqu�n, R�o Negro, Cipolletti, derecho laboral, divorcios, sucesiones">
-    <title>Dr. Guillermo Irrazabal | Abogado - ART y Derecho Laboral</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Guillermo Irrazabal | Abogado Laboralista | Cipolletti, Río Negro</title>
+<meta name="description" content="Abogado especialista en accidentes laborales y reclamos ART en Cipolletti, Río Negro. Defendemos tus derechos frente a la ART. Consulta gratuita.">
+<meta name="keywords" content="abogado ART Cipolletti, accidente laboral Río Negro, reclamo ART, abogado laboral Neuquén, incapacidad laboral">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #152d54;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --red: #8b1a1a;
+    --red-light: #c0392b;
+    --white: #ffffff;
+    --off-white: #f5f3ee;
+    --gray-light: #eae8e2;
+    --gray-mid: #8c8680;
+    --gray-dark: #3a3632;
+    --text: #1a1714;
+    --shadow: 0 4px 32px rgba(13,31,60,0.12);
+    --shadow-lg: 0 12px 60px rgba(13,31,60,0.18);
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+  a { text-decoration: none; color: inherit; }
 
-        :root {
-            --color-primario: #1e3a8a;
-            --color-secundario: #c9a227;
-            --color-oscuro: #1f2937;
-            --color-claro: #f3f4f6;
-            --color-blanco: #ffffff;
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(13,31,60,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 18px; color: var(--navy);
+  }
+  .nav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; color: var(--white); font-weight: 600;
+    line-height: 1.2;
+  }
+  .nav-title span { color: var(--gold); font-size: 11px; font-weight: 300; font-family: 'Lato', sans-serif; display: block; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 400;
+    letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 20px; border-radius: var(--radius);
+    font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--color-oscuro);
-        }
+  /* HERO */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    background: var(--navy);
+    overflow: hidden;
+    padding-top: 70px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(13,31,60,0.95) 0%, rgba(13,31,60,0.7) 50%, rgba(13,31,60,0.85) 100%),
+      url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto; padding: 6rem 2rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px; margin-bottom: 1.5rem;
+  }
+  .hero-badge::before { content: '⚖'; font-size: 14px; }
+  .hero-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--white); font-weight: 900; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero-title span { color: var(--gold); display: block; }
+  .hero-sub {
+    font-size: 1.15rem; color: rgba(255,255,255,0.75);
+    font-weight: 300; margin-bottom: 2.5rem; max-width: 480px;
+  }
+  .hero-buttons {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-wsp {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25d366; color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius);
+    font-weight: 700; font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  }
+  .btn-wsp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+  .btn-call {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius);
+    font-weight: 700; font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.2s;
+  }
+  .btn-call:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-info {
+    display: flex; flex-direction: column; gap: 10px; margin-top: 2.5rem;
+  }
+  .hero-info-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.65); font-size: 13px;
+  }
+  .hero-info-item svg { opacity: 0.6; flex-shrink: 0; }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+  .hero-card-title {
+    font-size: 1rem; color: var(--gold); text-transform: uppercase;
+    letter-spacing: 2px; font-family: 'Lato', sans-serif;
+    font-weight: 700; margin-bottom: 1.5rem;
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-item {
+    text-align: center; padding: 1.2rem;
+    background: rgba(255,255,255,0.05); border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+  .hero-quote {
+    margin-top: 1.5rem; padding: 1.2rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(201,168,76,0.08);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .hero-quote p {
+    font-style: italic; font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6;
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--color-primario) 0%, #2d5a87 100%);
-            color: var(--color-blanco);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy);
+    margin-bottom: 1rem; font-weight: 700;
+  }
+  .section-title span { color: var(--gold); }
+  .section-divider {
+    width: 60px; height: 3px; background: var(--gold);
+    margin: 1.2rem 0 2rem;
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  /* SOBRE EL ABOGADO */
+  #sobre { background: var(--off-white); }
+  .sobre-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center;
+  }
+  .sobre-img-wrap {
+    position: relative;
+  }
+  .sobre-img {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; border-radius: var(--radius-lg);
+    display: block;
+  }
+  .sobre-img-placeholder {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(160deg, var(--navy-mid), var(--navy));
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  .sobre-img-placeholder svg { opacity: 0.5; }
+  .sobre-img-placeholder p { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .sobre-badge-exp {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--gold); color: var(--navy);
+    border-radius: 50%; width: 100px; height: 100px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .sobre-badge-exp strong { font-size: 1.8rem; font-weight: 900; line-height: 1; }
+  .sobre-badge-exp span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .sobre-text p { color: #4a4642; margin-bottom: 1rem; font-size: 15px; line-height: 1.8; }
+  .sobre-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+  }
+  .sobre-feature {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 1rem; background: var(--white);
+    border-radius: var(--radius); border-left: 3px solid var(--gold);
+  }
+  .sobre-feature-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: rgba(201,168,76,0.1);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .sobre-feature h4 { font-size: 13px; color: var(--navy); margin-bottom: 2px; font-family: 'Lato', sans-serif; font-weight: 700; }
+  .sobre-feature p { font-size: 12px; color: var(--gray-mid); margin: 0; }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  /* SERVICIOS */
+  #servicios { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--off-white); border-radius: var(--radius-lg);
+    padding: 1.8rem; border: 1px solid var(--gray-light);
+    transition: all 0.3s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: var(--radius);
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 1.2rem;
+  }
+  .service-card h3 {
+    font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.6rem;
+  }
+  .service-card p { font-size: 13px; color: var(--gray-mid); line-height: 1.6; }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--color-secundario);
-        }
+  /* ALERTA ALTA MÉDICA */
+  #alerta {
+    background: var(--navy);
+    padding: 4rem 2rem;
+  }
+  .alerta-inner {
+    max-width: 900px; margin: 0 auto;
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    position: relative;
+    text-align: center;
+  }
+  .alerta-icon {
+    width: 70px; height: 70px; margin: 0 auto 1.5rem;
+    background: var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+  }
+  .alerta-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--gold); margin-bottom: 1rem; font-weight: 700;
+  }
+  .alerta-highlight {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--white); font-family: 'Playfair Display', serif;
+    font-weight: 900; margin-bottom: 1.5rem;
+    background: rgba(201,168,76,0.15);
+    padding: 1rem 2rem; border-radius: var(--radius);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: inline-block;
+  }
+  .alerta-text { color: rgba(255,255,255,0.75); font-size: 15px; max-width: 680px; margin: 0 auto 1.5rem; }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+  /* FAQ */
+  #faq { background: var(--off-white); }
+  .faq-grid { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    background: var(--white); border-radius: var(--radius);
+    margin-bottom: 0.8rem; border: 1px solid var(--gray-light);
+    overflow: hidden; transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: var(--shadow); }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 1.2rem 1.5rem; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy);
+  }
+  .faq-q .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--navy); color: var(--gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; transition: transform 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    padding: 0 1.5rem;
+    color: #4a4642; font-size: 14px; line-height: 1.8;
+  }
+  .faq-a-inner { padding: 0 0 1.2rem; border-top: 1px solid var(--gray-light); }
 
-        .nav-links a {
-            color: var(--color-blanco);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+  /* TESTIMONIOS */
+  #testimonios { background: var(--white); }
+  .testimonios-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+  }
+  .testimonio-card {
+    background: var(--off-white); border-radius: var(--radius-lg);
+    padding: 2rem; border: 1px solid var(--gray-light);
+    position: relative;
+  }
+  .testimonio-card::before {
+    content: '"'; font-family: 'Playfair Display', serif;
+    font-size: 80px; color: var(--gold); opacity: 0.2;
+    position: absolute; top: 0; right: 1.5rem;
+    line-height: 1;
+  }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 0.8rem; }
+  .testimonio-text { font-size: 14px; color: #4a4642; font-style: italic; line-height: 1.7; margin-bottom: 1.2rem; }
+  .testimonio-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+  }
+  .author-name { font-weight: 700; font-size: 13px; color: var(--navy); }
+  .author-role { font-size: 11px; color: var(--gray-mid); }
 
-        .nav-links a:hover {
-            color: var(--color-secundario);
-        }
+  /* CTA */
+  #cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 5rem 2rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: '⚖'; position: absolute; font-size: 300px;
+    opacity: 0.03; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+  .cta-title {
+    font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white);
+    margin-bottom: 1rem; font-weight: 900;
+  }
+  .cta-title span { color: var(--gold); }
+  .cta-sub { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--navy);
+    padding: 16px 32px; border-radius: var(--radius);
+    font-weight: 700; font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+  }
+  .btn-gold:hover { transform: translateY(-2px); background: var(--gold-light); box-shadow: 0 8px 30px rgba(201,168,76,0.5); }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+  /* CONTACTO */
+  #contacto { background: var(--off-white); }
+  .contacto-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start;
+  }
+  .contact-form {
+    background: var(--white); padding: 2.5rem;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+  }
+  .contact-form h3 { font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--gray-light); border-radius: var(--radius);
+    font-family: 'Lato', sans-serif; font-size: 14px; color: var(--text);
+    transition: border-color 0.2s; background: var(--white);
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--gold);
+  }
+  .form-group textarea { min-height: 120px; }
+  .btn-submit {
+    width: 100%; padding: 14px; background: var(--navy);
+    color: var(--white); border: none; border-radius: var(--radius);
+    font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-submit:hover { background: var(--navy-mid); }
+  .form-note { font-size: 12px; color: var(--gray-mid); text-align: center; margin-top: 1rem; }
+  .contact-info h3 { font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 1.2rem; background: var(--white);
+    border-radius: var(--radius); border-left: 3px solid var(--gold);
+    margin-bottom: 1rem;
+  }
+  .contact-item-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--navy); border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .contact-item h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-family: 'Lato', sans-serif; font-weight: 700; margin-bottom: 4px; }
+  .contact-item p, .contact-item a { font-size: 14px; color: var(--text); }
+  .contact-item a:hover { color: var(--gold); }
+  .map-embed {
+    margin-top: 1.5rem; border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--gray-light); height: 220px;
+  }
+  .map-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+  .horario-badge {
+    background: var(--navy); color: var(--gold);
+    padding: 10px 18px; border-radius: var(--radius);
+    font-size: 13px; font-weight: 700; text-align: center; margin-top: 1rem;
+  }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--color-blanco);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
+  /* FOOTER */
+  footer {
+    background: var(--gray-dark); color: rgba(255,255,255,0.75);
+    padding: 3rem 2rem 1.5rem;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem;
+    max-width: 1100px; margin: 0 auto 2rem;
+  }
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+  .footer-brand-sub { font-size: 11px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-desc { font-size: 13px; line-height: 1.7; }
+  .footer-col h4 { font-family: 'Lato', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 1rem; font-weight: 700; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    gap: 1rem;
+  }
+  .footer-bottom p { font-size: 12px; }
+  .footer-quote { font-style: italic; font-size: 12px; color: var(--gold); }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--color-primario) 0%, #2d5a87 100%);
-            color: var(--color-blanco);
-            padding: 4rem 0;
-            text-align: center;
-        }
+  /* WSP FLOAT */
+  .wsp-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25d366; color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: wsp-pulse 2s infinite;
+  }
+  .wsp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.65); }
+  @keyframes wsp-pulse {
+    0%,100%{ box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4); }
+    70%{ box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 16px rgba(37,211,102,0); }
+  }
+  .wsp-float svg { width: 30px; height: 30px; }
+  .wsp-tooltip {
+    position: absolute; right: 70px; background: var(--navy);
+    color: var(--white); padding: 6px 12px; border-radius: var(--radius);
+    font-size: 12px; white-space: nowrap; pointer-events: none;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .wsp-float:hover .wsp-tooltip { opacity: 1; }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; }
+    .hero-card { display: none; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .sobre-badge-exp { display: none; }
+    .sobre-features { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    nav { padding: 0 1rem; }
+    section { padding: 3.5rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-buttons { flex-direction: column; }
+    .btn-wsp, .btn-call { justify-content: center; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+  }
 
-        .hero h2 {
-            font-size: 2rem;
-            color: var(--color-secundario);
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .zona-atencion {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--color-secundario);
-            color: var(--color-primario);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Servicios */
-        .servicios {
-            padding: 4rem 0;
-            background: var(--color-claro);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--color-primario);
-            margin-bottom: 3rem;
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .servicio-card {
-            background: var(--color-blanco);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--color-secundario);
-        }
-
-        .servicio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        .servicio-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .servicio-card h3 {
-            color: var(--color-primario);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Formulario de Contacto */
-        .contacto {
-            padding: 4rem 0;
-            background: var(--color-blanco);
-        }
-
-        .contacto-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--color-claro);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--color-primario);
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primario);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn-submit {
-            background: var(--color-primario);
-            color: var(--color-blanco);
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: #152a63;
-            transform: translateY(-2px);
-        }
-
-        .btn-whatsapp {
-            background: #25d366;
-            margin-top: 1rem;
-        }
-
-        .btn-whatsapp:hover {
-            background: #128c7e;
-        }
-
-        /* Zonas de Cobertura */
-        .zonas {
-            padding: 3rem 0;
-            background: var(--color-primario);
-            color: var(--color-blanco);
-            text-align: center;
-        }
-
-        .zonas h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--color-secundario);
-        }
-
-        .ciudades {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .ciudad {
-            background: rgba(255,255,255,0.1);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            border: 2px solid var(--color-secundario);
-        }
-
-        /* Informaci�n de Contacto */
-        .info-contacto {
-            padding: 3rem 0;
-            background: var(--color-oscuro);
-            color: var(--color-blanco);
-            text-align: center;
-        }
-
-        .info-contacto h2 {
-            color: var(--color-secundario);
-            margin-bottom: 2rem;
-        }
-
-        .contacto-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contacto-item {
-            padding: 1.5rem;
-        }
-
-        .contacto-item h3 {
-            color: var(--color-secundario);
-            margin-bottom: 1rem;
-        }
-
-        .contacto-item a {
-            color: var(--color-blanco);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .contacto-item a:hover {
-            color: var(--color-secundario);
-        }
-
-        /* Footer */
-        footer {
-            background: #111827;
-            color: var(--color-blanco);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--color-primario);
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .contacto-wrapper {
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* Animaciones */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .servicio-card,
-        .contacto-wrapper {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* Mensaje de �xito */
-        .success-message {
-            display: none;
-            background: #10b981;
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .error-message {
-            display: none;
-            background: #ef4444;
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-    </style>
+  /* ANIMACIONES */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">?? Dr. Irrazabal</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#zonas">Zonas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">GI</div>
+    <div class="nav-title">
+      Dr. Guillermo Irrazabal
+      <span>Abogado Laboralista</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#sobre">El Abogado</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#faq">Preguntas</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto" class="nav-cta">Consultar</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <h1>Dr. Guillermo Irrazabal</h1>
-            <h2>ABOGADO</h2>
-            <p>Especialista en Accidentes de Trabajo (ART), Derecho Laboral, Divorcios y Sucesiones. Defensa profesional de sus derechos en Neuqu�n y R�o Negro.</p>
-            <div class="zona-atencion">
-                <strong>?? Zona Alto Valle - Neuqu�n y R�o Negro</strong>
-            </div>
-            <br>
-            <a href="#contacto" class="cta-button">Consultar Ahora</a>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">Abogado Laboralista · Cipolletti</div>
+      <h1 class="hero-title">
+        ¿Sufriste un<br>accidente laboral?
+        <span>Defendemos tus derechos.</span>
+      </h1>
+      <p class="hero-sub">Expertos en reclamos ART, incapacidades y enfermedades profesionales en Río Negro y Neuquén. Asesoramiento personalizado desde el primer día.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/5492996336650?text=Hola%20Dr.%20Irrazabal%2C%20quisiera%20hacer%20una%20consulta" class="btn-wsp" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consulta por WhatsApp
+        </a>
+        <a href="tel:+5492996336650" class="btn-call">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.13 19.79 19.79 0 01.01 .5a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.36 6.36l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Llamar ahora
+        </a>
+      </div>
+      <div class="hero-info">
+        <div class="hero-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.13 19.79 19.79 0 01.01 .5a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.36 6.36l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (0299) 633-6650
         </div>
-    </section>
+        <div class="hero-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          girrazabal76@gmail.com
+        </div>
+        <div class="hero-info-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Alem 125, Cipolletti, Río Negro
+        </div>
+      </div>
+    </div>
+    <div class="hero-card fade-in">
+      <div class="hero-card-title">Nuestra Experiencia</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">+500</div>
+          <div class="stat-label">Casos resueltos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Años de práctica</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Clientes conformes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0$</div>
+          <div class="stat-label">Consulta inicial</div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <p>"La defensa del trabajador comienza con un buen asesoramiento."</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Desplazar</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
 
-    <!-- Servicios -->
-    <section class="servicios" id="servicios">
-        <div class="container">
-            <h2 class="section-title">�reas de Pr�ctica</h2>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div class="servicio-icon">??</div>
-                    <h3>ART - Accidentes de Trabajo</h3>
-                    <p>Reclamaciones por accidentes laborales y enfermedades profesionales. Indemnizaciones completas.</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">??</div>
-                    <h3>Derecho Laboral</h3>
-                    <p>Despidos, trabajo en negro, horas extras, diferencias salariales y condiciones de trabajo.</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">??</div>
-                    <h3>Divorcios</h3>
-                    <p>Divorcios express, cuota alimentaria, r�gimen de comunicaci�n y liquidaci�n de sociedad conyugal.</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">??</div>
-                    <h3>Sucesiones</h3>
-                    <p>Tr�mites sucesorios, declaratoria de herederos, partici�n de bienes y testamentos.</p>
-                </div>
+<!-- SOBRE EL ABOGADO -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap fade-in">
+        <div class="sobre-img-placeholder">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <p>Foto del Dr. Irrazabal</p>
+        </div>
+        <div class="sobre-badge-exp">
+          <strong>15+</strong>
+          <span>Años de experiencia</span>
+        </div>
+      </div>
+      <div class="fade-in">
+        <p class="section-label">Quién soy</p>
+        <h2 class="section-title">Dr. Guillermo <span>Irrazabal</span></h2>
+        <div class="section-divider"></div>
+        <div class="sobre-text">
+          <p>Abogado dedicado a la atención y resolución de trámites por <strong>accidentes laborales y enfermedades profesionales</strong>, con amplia experiencia administrativa y judicial en la provincia de Río Negro y Neuquén.</p>
+          <p>A lo largo de mi trayectoria he acompañado a cientos de trabajadores frente a las aseguradoras de riesgos del trabajo, logrando el reconocimiento de incapacidades, indemnizaciones y prestaciones médicas que les correspondían por ley.</p>
+          <p>Mi compromiso es brindar <strong>asesoramiento claro, honesto y personalizado</strong>, explicando cada paso del proceso para que el trabajador comprenda y tome decisiones informadas.</p>
+        </div>
+        <div class="sobre-features">
+          <div class="sobre-feature">
+            <div class="sobre-feature-icon">🤝</div>
+            <div>
+              <h4>Atención personalizada</h4>
+              <p>Cada caso recibe atención individual y dedicada.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Zonas de Cobertura -->
-    <section class="zonas" id="zonas">
-        <div class="container">
-            <h2>??? Zonas de Atenci�n</h2>
-            <p style="font-size: 1.2rem;">Atendemos en todo el Alto Valle de R�o Negro y Neuqu�n</p>
-            <div class="ciudades">
-                <div class="ciudad">Cipolletti</div>
-                <div class="ciudad">Neuqu�n Capital</div>
-                <div class="ciudad">Allen</div>
-                <div class="ciudad">Fern�ndez Oro</div>
-                <div class="ciudad">Plottier</div>
-                <div class="ciudad">Cinco Saltos</div>
-                <div class="ciudad">Centenario</div>
-                <div class="ciudad">General Roca</div>
-                <div class="ciudad">Villa Regina</div>
+          </div>
+          <div class="sobre-feature">
+            <div class="sobre-feature-icon">⚖️</div>
+            <div>
+              <h4>Experiencia judicial</h4>
+              <p>Comisiones médicas, instancias administrativas y juicios.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Formulario de Contacto -->
-    <section class="contacto" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Consulta Gratuita</h2>
-            <div class="contacto-wrapper">
-                <div class="success-message" id="successMessage">
-                    ? �Mensaje enviado con �xito! Me contactar� a la brevedad.
-                </div>
-                <div class="error-message" id="errorMessage">
-                    ? Por favor complete todos los campos obligatorios.
-                </div>
-
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo *</label>
-                        <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre completo">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefono">Tel�fono / WhatsApp *</label>
-                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 299 123 4567">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Correo Electr�nico</label>
-                        <input type="email" id="email" name="email" placeholder="Ej: ejemplo@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ciudad">Ciudad / Localidad *</label>
-                        <select id="ciudad" name="ciudad" required>
-                            <option value="">Seleccione su ciudad</option>
-                            <option value="Cipolletti">Cipolletti</option>
-                            <option value="Neuqu�n Capital">Neuqu�n Capital</option>
-                            <option value="Allen">Allen</option>
-                            <option value="Fern�ndez Oro">Fern�ndez Oro</option>
-                            <option value="Plottier">Plottier</option>
-                            <option value="Cinco Saltos">Cinco Saltos</option>
-                            <option value="Centenario">Centenario</option>
-                            <option value="General Roca">General Roca</option>
-                            <option value="Villa Regina">Villa Regina</option>
-                            <option value="Otra">Otra localidad</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tipoCaso">Tipo de Caso / Servicio que necesita *</label>
-                        <select id="tipoCaso" name="tipoCaso" required onchange="mostrarDetalle()">
-                            <option value="">Seleccione el tipo de consulta</option>
-                            <option value="ART - Accidente de Trabajo">ART - Accidente de Trabajo</option>
-                            <option value="Enfermedad Profesional">Enfermedad Profesional</option>
-                            <option value="Despido">Despido</option>
-                            <option value="Trabajo en Negro">Trabajo en Negro</option>
-                            <option value="Diferencias Salariales">Diferencias Salariales</option>
-                            <option value="Divorcio">Divorcio</option>
-                            <option value="Cuota Alimentaria">Cuota Alimentaria</option>
-                            <option value="Sucesi�n">Sucesi�n</option>
-                            <option value="Otro">Otro tema legal</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group" id="detalleCaso" style="display: none;">
-                        <label for="mensaje">Cu�ntenos brevemente su caso *</label>
-                        <textarea id="mensaje" name="mensaje" placeholder="Describa su situaci�n: fecha del accidente, tipo de lesi�n, empresa, etc."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" required> 
-                            Acepto ser contactado por WhatsApp o tel�fono para mi consulta
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Enviar Consulta</button>
-                </form>
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p style="margin-bottom: 1rem; font-size: 1.1rem;">�Prefiere contacto directo?</p>
-                    <a href="https://wa.me/5492996336650?text=Hola%20Dr.%20Irrazabal,%20necesito%20asesoramiento%20legal" 
-                       class="cta-button btn-whatsapp" target="_blank">
-                        ?? Contactar por WhatsApp
-                    </a>
-                    <p style="margin-top: 1rem; font-size: 1.2rem;">
-                        ?? <strong>Tel: 299 6336650</strong>
-                    </p>
-                </div>
+          </div>
+          <div class="sobre-feature">
+            <div class="sobre-feature-icon">🛡️</div>
+            <div>
+              <h4>Acompañamiento total</h4>
+              <p>Estamos con vos en todo el proceso, de principio a fin.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Informaci�n de Contacto -->
-    <section class="info-contacto">
-        <div class="container">
-            <h2>Informaci�n de Contacto</h2>
-            <div class="contacto-grid">
-                <div class="contacto-item">
-                    <h3>?? Tel�fono / WhatsApp</h3>
-                    <a href="tel:+5492996336650">299 6336650</a>
-                </div>
-                <div class="contacto-item">
-                    <h3>?? Email</h3>
-                    <a href="mailto:guillermo_irrazabal@hotmail.com">guillermo_irrazabal@hotmail.com</a>
-                </div>
-                <div class="contacto-item">
-                    <h3>?? Direcci�n</h3>
-                    <p>Estudio Jur�dico SI Abogados<br>
-                    Alem 125, Cipolletti, RN</p>
-                </div>
-                <div class="contacto-item">
-                    <h3>? Horario de Atenci�n</h3>
-                    <p>Lunes a Viernes<br>
-                    9:00 - 18:00 hs</p>
-                </div>
+          </div>
+          <div class="sobre-feature">
+            <div class="sobre-feature-icon">💬</div>
+            <div>
+              <h4>Consulta gratuita</h4>
+              <p>Primera consulta sin cargo. Sin letra chica.</p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Dr. Guillermo Irrazabal - Abogado. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Estudio Jur�dico SI Abogados - Cipolletti, R�o Negro</p>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem" class="fade-in">
+      <p class="section-label">¿En qué te ayudamos?</p>
+      <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+      <div class="section-divider" style="margin:1.2rem auto 0"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">⛑️</div>
+        <h3>Accidentes Laborales</h3>
+        <p>Representación integral ante accidentes ocurridos durante la jornada laboral o en el trayecto al trabajo.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🏥</div>
+        <h3>Enfermedades Profesionales</h3>
+        <p>Reclamamos el reconocimiento de enfermedades derivadas del ambiente o las condiciones de trabajo.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📋</div>
+        <h3>Reclamos ART</h3>
+        <p>Gestionamos todos los trámites ante la Aseguradora de Riesgos del Trabajo para que recibas lo que te corresponde.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🩺</div>
+        <h3>Divergencia en Alta Médica</h3>
+        <p>Si no estás de acuerdo con el alta otorgada por la ART, recurrimos ante las comisiones médicas.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📊</div>
+        <h3>Determinación de Incapacidad</h3>
+        <p>Gestionamos la correcta determinación de tu porcentaje de incapacidad para maximizar tu indemnización.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🚫</div>
+        <h3>Rechazo de Prestaciones</h3>
+        <p>Impugnamos rechazos indebidos de la ART para que accedas a la atención médica y económica que necesitás.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🏛️</div>
+        <h3>Juicios Laborales</h3>
+        <p>Litigamos ante la justicia cuando la vía extrajudicial no es suficiente para defender tus derechos.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📜</div>
+        <h3>Sucesiones</h3>
+        <p>Acompañamos a las familias en los trámites sucesorios con profesionalismo y sensibilidad humana.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">👨‍👩‍👧</div>
+        <h3>Divorcios</h3>
+        <p>Asesoramiento en procesos de divorcio, buscando siempre la solución más conveniente para su familia.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🗂️</div>
+        <h3>Asesoramiento Integral</h3>
+        <p>Consultas generales en derecho laboral, civil y de familia. Primera consulta siempre sin cargo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALERTA ALTA MÉDICA -->
+<section id="alerta">
+  <div class="container">
+    <div class="alerta-inner fade-in">
+      <div class="alerta-icon">⚠️</div>
+      <h2 class="alerta-title">Información crucial para el trabajador</h2>
+      <div class="alerta-highlight">
+        Cuando firme el alta médica de la ART,<br>firme siempre <u>EN DISCONFORMIDAD</u>
+      </div>
+      <p class="alerta-text">
+        Si firma el alta sin aclarar que está en disconformidad, puede perder el derecho a reclamar una indemnización mayor por sus lesiones. Aunque no se sienta bien, la ART puede darlo de alta igualmente. Proteja sus derechos: anote "firmo en disconformidad" antes de su firma, y comuníquese de inmediato con el Dr. Irrazabal.
+      </p>
+      <a href="https://wa.me/5492996336650?text=Hola%2C%20la%20ART%20me%20dio%20el%20alta%20y%20necesito%20asesoramiento" class="btn-wsp" target="_blank" style="display:inline-flex; margin-top:0.5rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Me dieron el alta, ¿qué hago?
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem" class="fade-in">
+      <p class="section-label">Respondemos tus dudas</p>
+      <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
+      <div class="section-divider" style="margin:1.2rem auto 0"></div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué es una ART y cuál es su obligación?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>La ART (Aseguradora de Riesgos del Trabajo) es una empresa privada obligada por ley que debe cubrir al trabajador en caso de accidente laboral o enfermedad profesional. Debe brindar atención médica, rehabilitación, prestaciones dinerarias (indemnizaciones) y en caso de fallecimiento, cubrir a los derechohabientes. Si la ART no cumple, existe la posibilidad de recurrir administrativa y judicialmente.</p>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿El reclamo a la ART puede afectar mi trabajo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>No. La ley argentina protege al trabajador frente a represalias del empleador. El reclamo lo realizás contra la ART, no contra tu empleador. El empleador no financia la indemnización de su bolsillo: lo hace la aseguradora. Tu relación laboral no debe verse afectada y existen mecanismos legales para protegerte si así ocurriera.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué hago si la ART rechazó mi siniestro?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>El rechazo de la ART no es la última palabra. Se puede impugnar ante las Comisiones Médicas Jurisdiccionales (CMJ) y, de ser necesario, continuar la vía judicial. Muchos rechazos son arbitrarios y la justicia falla a favor del trabajador. Lo fundamental es actuar rápido y con asesoramiento profesional desde el momento del rechazo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué hago si no estoy de acuerdo con el alta médica?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Debe firmar el alta EN DISCONFORMIDAD. Luego puede impugnarla ante la Comisión Médica Jurisdiccional, que tiene 10 días hábiles para resolver. Durante ese trámite, la ART debe continuar pagando sus prestaciones. Si está incapacitado de hacer trabajo pesado pero la ART lo da de alta, también puede reclamar ante el empleador por tareas livianas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Estoy cubierto si estaba en período de prueba?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Sí. El período de prueba no excluye la cobertura de la ART. El empleador está obligado a asegurarte desde el primer día de trabajo, independientemente de la modalidad del contrato. Si el empleador no te registró, igualmente podés reclamar y el empleador será solidariamente responsable junto con la ART.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué pasa si la ART no me brinda atención médica?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Es una violación grave de sus obligaciones legales. Puede atenderse por sus propios medios y luego reclamar el reintegro a la ART con intereses. También puede denunciarla ante la Superintendencia de Riesgos del Trabajo (SRT). Lo más importante es guardar toda la documentación médica y comunicarse de inmediato con un abogado para proteger sus derechos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Men� responsive
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem" class="fade-in">
+      <p class="section-label">Lo que dicen nuestros clientes</p>
+      <h2 class="section-title">Trabajadores que <span>confiaron</span> en nosotros</h2>
+      <div class="section-divider" style="margin:1.2rem auto 0"></div>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testimonio-text">"El Dr. Irrazabal logró que la ART reconociera mi incapacidad y pude cobrar mi indemnización. Yo estaba solo y sin saber qué hacer, él me explicó todo paso a paso. Excelente profesional y gran persona."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">RM</div>
+          <div>
+            <div class="author-name">Roberto M.</div>
+            <div class="author-role">Operario metalúrgico · Cipolletti</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testimonio-text">"Sufrí un accidente en la construcción y la ART quería cerrar el caso rápido. Gracias al Dr. Irrazabal pude reclamar una indemnización justa. Sin su ayuda no hubiera sabido que tenía ese derecho."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">JL</div>
+          <div>
+            <div class="author-name">Jorge L.</div>
+            <div class="author-role">Trabajador de la construcción · Neuquén</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testimonio-text">"Tuve una enfermedad profesional y la ART la rechazó. El Dr. Irrazabal la impugnó y ganamos. Tardó un tiempo pero valió la pena. Muy transparente en todo momento, siempre me informaba cómo iba el caso."</p>
+        <div class="testimonio-author">
+          <div class="author-avatar">SG</div>
+          <div>
+            <div class="author-name">Silvia G.</div>
+            <div class="author-role">Empleada administrativa · Allen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="fade-in" style="position:relative; z-index:1">
+      <p class="section-label" style="color:var(--gold); text-align:center">Actuá hoy</p>
+      <h2 class="cta-title">No enfrentes solo<br><span>a la ART.</span></h2>
+      <p class="cta-sub">Cada día que pasa sin asesoramiento puede significar perder derechos valiosos. La primera consulta es gratuita y sin compromiso.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5492996336650?text=Hola%20Dr.%20Irrazabal%2C%20quisiera%20hacer%20una%20consulta%20gratuita" class="btn-wsp" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
+        <a href="tel:+5492996336650" class="btn-gold">
+          📞 Llamar: (0299) 633-6650
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Cerrar men� al hacer click en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem" class="fade-in">
+      <p class="section-label">Estamos para vos</p>
+      <h2 class="section-title">Ponete en <span>Contacto</span></h2>
+      <div class="section-divider" style="margin:1.2rem auto 0"></div>
+    </div>
+    <div class="contacto-grid">
+      <div class="contact-form fade-in">
+        <h3>Envianos tu consulta</h3>
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Juan González" id="form-nombre">
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="(0299) 000-0000" id="form-tel">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="tu@email.com" id="form-email">
+        </div>
+        <div class="form-group">
+          <label>¿Cuál es tu situación?</label>
+          <select id="form-tipo">
+            <option value="">Seleccioná una opción...</option>
+            <option>Accidente laboral</option>
+            <option>Enfermedad profesional</option>
+            <option>La ART rechazó mi siniestro</option>
+            <option>Disconformidad con el alta médica</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Contanos brevemente qué pasó</label>
+          <textarea placeholder="Describí tu situación para que podamos orientarte mejor..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="enviarWsp()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar consulta por WhatsApp
+        </button>
+        <p class="form-note">🔒 Tu información es confidencial. Respondemos en menos de 24hs hábiles.</p>
+      </div>
+      <div class="fade-in">
+        <h3>Información de contacto</h3>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <h4>Dirección</h4>
+            <p>Alem 125, Cipolletti<br>Río Negro, Argentina</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <h4>Teléfono</h4>
+            <a href="tel:+5492996336650">(0299) 633-6650</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:girrazabal76@gmail.com">girrazabal76@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/5492996336650" target="_blank">Escribir por WhatsApp</a>
+          </div>
+        </div>
+        <div class="horario-badge">
+          🕘 Lunes a Viernes · 09:00 a 16:00 hs
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.32!2d-67.9902!3d-38.9340!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a33b!2sCipolletti%2C+R%C3%ADo+Negro!5e0!3m2!1ses!2sar!4v1234567890"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Mostrar campo de detalle seg�n tipo de caso
-        function mostrarDetalle() {
-            const tipoCaso = document.getElementById('tipoCaso').value;
-            const detalleCaso = document.getElementById('detalleCaso');
-            const mensaje = document.getElementById('mensaje');
-            
-            if (tipoCaso) {
-                detalleCaso.style.display = 'block';
-                // Personalizar placeholder seg�n tipo de caso
-                const placeholders = {
-                    'ART - Accidente de Trabajo': 'Describa: fecha del accidente, lugar, tipo de lesi�n, si recibi� atenci�n m�dica, etc.',
-                    'Enfermedad Profesional': 'Describa: s�ntomas, tiempo de evoluci�n, puesto de trabajo, si fue diagnosticada, etc.',
-                    'Despido': 'Describa: fecha de despido, antig�edad, salario, causa invocada, si le entregaron documentaci�n, etc.',
-                    'Trabajo en Negro': 'Describa: tiempo trabajado, tareas, horario, salario percibido, testigos, etc.',
-                    'Divorcio': 'Describa: si hay hijos, bienes, si es de mutuo acuerdo, etc.',
-                    'Sucesi�n': 'Describa: fecha de fallecimiento, herederos, bienes, si hay testamento, etc.'
-                };
-                mensaje.placeholder = placeholders[tipoCaso] || 'Describa brevemente su caso';
-            } else {
-                detalleCaso.style.display = 'none';
-            }
-        }
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Dr. Guillermo Irrazabal</div>
+      <div class="footer-brand-sub">Abogado Laboralista</div>
+      <p class="footer-desc">Especialista en accidentes laborales, enfermedades profesionales y reclamos ART en la provincia de Río Negro y Neuquén. Más de 15 años defendiendo a los trabajadores.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul class="footer-links">
+        <li><a href="#servicios">Accidentes Laborales</a></li>
+        <li><a href="#servicios">Enfermedades Profesionales</a></li>
+        <li><a href="#servicios">Reclamos ART</a></li>
+        <li><a href="#servicios">Juicios Laborales</a></li>
+        <li><a href="#servicios">Sucesiones y Divorcios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul class="footer-links">
+        <li><a href="tel:+5492996336650">(0299) 633-6650</a></li>
+        <li><a href="mailto:girrazabal76@gmail.com">girrazabal76@gmail.com</a></li>
+        <li><a href="#">Alem 125, Cipolletti</a></li>
+        <li><a href="https://wa.me/5492996336650" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Dr. Guillermo Irrazabal · Todos los derechos reservados</p>
+    <p class="footer-quote">"La defensa del trabajador comienza con un buen asesoramiento."</p>
+  </div>
+</footer>
 
-        // Manejo del formulario
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const successMsg = document.getElementById('successMessage');
-            const errorMsg = document.getElementById('errorMessage');
-            
-            // Validaci�n b�sica
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const ciudad = document.getElementById('ciudad').value;
-            const tipoCaso = document.getElementById('tipoCaso').value;
-            
-            if (!nombre || !telefono || !ciudad || !tipoCaso) {
-                errorMsg.style.display = 'block';
-                successMsg.style.display = 'none';
-                setTimeout(() => {
-                    errorMsg.style.display = 'none';
-                }, 5000);
-                return;
-            }
-            
-            // Aqu� ir�a el c�digo para enviar el formulario a un servidor
-            // Por ahora simulamos el env�o exitoso
-            successMsg.style.display = 'block';
-            errorMsg.style.display = 'none';
-            
-            // Limpiar formulario
-            this.reset();
-            document.getElementById('detalleCaso').style.display = 'none';
-            
-            // Scroll al mensaje
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Ocultar mensaje despu�s de 5 segundos
-            setTimeout(() => {
-                successMsg.style.display = 'none';
-            }, 8000);
-        });
+<!-- WSP FLOAT -->
+<a class="wsp-float" href="https://wa.me/5492996336650?text=Hola%20Dr.%20Irrazabal%2C%20necesito%20asesoramiento%20legal" target="_blank" aria-label="WhatsApp">
+  <span class="wsp-tooltip">Consulta gratis</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-        // Smooth scroll para enlaces
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<script>
+  // FAQ Toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
 
-        // Agregar animaci�n al scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  // WhatsApp form
+  function enviarWsp() {
+    const nombre = document.getElementById('form-nombre').value || 'Sin nombre';
+    const tel = document.getElementById('form-tel').value || 'No indicado';
+    const tipo = document.getElementById('form-tipo').value || 'Consulta general';
+    const msg = encodeURIComponent(`Hola Dr. Irrazabal, le escribo desde el sitio web.\n\nNombre: ${nombre}\nTeléfono: ${tel}\nSituación: ${tipo}\n\nQuedo a disposición para coordinar una consulta.`);
+    window.open(`https://wa.me/5492996336650?text=${msg}`, '_blank');
+  }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+  // Hamburger menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:70px; left:0; right:0; background:rgba(13,31,60,0.98); padding:1.5rem; gap:1rem; border-bottom:1px solid rgba(201,168,76,0.3); z-index:999;';
+    }
+  }
 
-        // Observar elementos para animar
-        document.querySelectorAll('.servicio-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s, transform 0.6s';
-            observer.observe(card);
-        });
-    </script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
 </body>
 </html>
